@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
-
+from app.api.routes.analytics import router as analytics_router
 
 app = FastAPI(
     title="FinPilot API",
