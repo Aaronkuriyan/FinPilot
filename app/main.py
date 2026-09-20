@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.api.routes.analytics import router as analytics_router
+from app.api.routes.accounts import router as accounts_router
 
 app = FastAPI(
     title="FinPilot API",
@@ -17,7 +18,10 @@ app.include_router(
     analytics_router,
     prefix="/api",
 )
-
+app.include_router(
+    accounts_router,
+    prefix="/api",
+)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
